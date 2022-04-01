@@ -1,4 +1,4 @@
-# DevOps Lesson 3 - CYF
+# DevOps Lesson 3 - CYF London 8
 
 This is the base repo to clone for the DevOps lesson 3. It has a basic Express.js application serving a small Hello World server.
 
