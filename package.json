@@ -4,12 +4,18 @@
   "description": "This is the base repo to clone for the DevOps lesson 3. It has a basic Express.js application serving a small Hello World server.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
+  },
+  "jest": {
+    "verbose": true
   }
 }
