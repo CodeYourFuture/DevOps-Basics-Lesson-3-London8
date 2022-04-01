@@ -1,0 +1,15 @@
+{
+  "name": "devops-lesson-3",
+  "version": "1.0.0",
+  "description": "This is the base repo to clone for the DevOps lesson 3. It has a basic Express.js application serving a small Hello World server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
