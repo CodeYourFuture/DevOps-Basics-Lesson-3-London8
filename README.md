@@ -7,6 +7,7 @@ This is the base repo to clone for the DevOps lesson 3. It has a basic Express.j
 * To run this application, you need any supported Node version (v14+ preferred)
 * Run `npm install` to install all the dependencies
 
-## Using the Application
+## Using and developing the Application
 
-TODO
+* The server can be started by running `npm start`
+* Note that there is no hot-reload: if you make a change to the code, you will need to stop and start the server manually for the changes to take effect.
