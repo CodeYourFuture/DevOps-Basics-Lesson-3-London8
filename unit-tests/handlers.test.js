@@ -15,7 +15,7 @@ describe('Test Route Handlers', () => {
     expect(res.send.mock.calls[0][0]).toContain(`${currentTime}`);
   });
 
-  test('Hello page responds with the given given as a route parameter', () => {
+  test('Hello page greets the name given as a route parameter', () => {
     const res = { send: jest.fn() };
     const mockedName = "Lorenzo";
     
@@ -23,5 +23,15 @@ describe('Test Route Handlers', () => {
 
     expect(res.send.mock.calls.length).toEqual(1);
     expect(res.send.mock.calls[0][0]).toEqual(`Hello ${mockedName}!`);
+  });
+
+  test('Hello page responds with a generic appelative if route parameter is not given', () => {
+    const res = { send: jest.fn() };
+    const expectedGenericName = "Friend";
+    
+    sayHelloHandler({params: {}}, res);
+
+    expect(res.send.mock.calls.length).toEqual(1);
+    expect(res.send.mock.calls[0][0]).toEqual(`Hello ${expectedGenericName}!`);
   });
 });
