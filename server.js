@@ -3,7 +3,7 @@ const { indexHandler, sayHelloHandler } = require('./routes/handlers')
 
 
 const app = express();
-const port = 3000;
+const port = 404;
 
 
 app.get('/', indexHandler);
