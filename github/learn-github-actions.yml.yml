@@ -1,18 +1,17 @@
-# .github/workflows/netlify.yml
-name: Build and Deploy to Netlify
-on:
-  push:
-  pull_request:
+name: learn-github-actions
+on: [push]
 jobs:
-  build:
+  check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      # ( Build to ./dist or other directory... )
-
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm install -g bats
+      - run: bats -v
       - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v1.2
+      - uses: nwtgck/actions-netlify@v1.2
         with:
           publish-dir: './dist'
           production-branch: master
