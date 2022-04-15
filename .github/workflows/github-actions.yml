@@ -2,7 +2,7 @@ name: Node.js CI
 
 on:
   push:
-    branches: [master]
+    branches: [london-class-8/craig-dsilva]
   pull_request:
     branches: [master]
 
