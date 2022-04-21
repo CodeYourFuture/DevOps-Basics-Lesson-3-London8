@@ -4,12 +4,15 @@ const indexHandler = (req, res) => {
   var current_time = new Date();
   request_number += 1;
 
+  console.log(`[INFO] - ${current_time} - indexHandler requested by ${req.connection.remoteAddress}. Request number: ${request_number}`);
   res.send(`Hello! The current server time in is ${current_time}. The server has responded to ${request_number} requests since it started.`)
 }
 
 const sayHelloHandler = (req, res) => {
+  var current_time = new Date();
   const name = req.params.name || "person";
 
+  console.log(`[INFO] - ${current_time} - sayHelloHandler requested by ${req.connection.remoteAddress}. The name is ${name}`);
   res.send(`Hello ${name}!`);
 }
 
