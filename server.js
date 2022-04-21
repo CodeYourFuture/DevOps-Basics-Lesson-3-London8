@@ -1,5 +1,6 @@
 const express = require('express')
 const { indexHandler, sayHelloHandler } = require('./routes/handlers')
+const { logger } = require('./helpers/logger')
 
 
 const app = express();
@@ -11,5 +12,5 @@ app.get('/', indexHandler);
 app.get('/hello/:name', sayHelloHandler);
 
 app.listen(port, () => {
-  console.log(`Hello world Application started and listening on http://localhost:${port}`)
+  logger.info(`Server is listening on port ${port}`);
 })
