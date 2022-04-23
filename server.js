@@ -10,6 +10,8 @@ app.get('/', indexHandler);
 
 app.get('/hello/:name', sayHelloHandler);
 
+
+
 app.listen(port, () => {
   console.log(`Hello world Application started and listening on http://localhost:${port}`)
 })
