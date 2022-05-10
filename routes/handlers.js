@@ -10,7 +10,7 @@ const indexHandler = (req, res) => {
 const sayHelloHandler = (req, res) => {
   const name = req.params.name || "person";
 
-  res.send(`Hello ${name}!`);
+  res.send(`Hello Friend!`);
 }
 
 module.exports = { indexHandler, sayHelloHandler };
