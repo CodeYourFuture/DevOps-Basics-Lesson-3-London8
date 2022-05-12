@@ -24,4 +24,5 @@ jobs:
       # - name: Install dependencies
       #   run: npm ci
       # - run: npm test
-      - run: curl http://example.com
+      - run: > 
+          curl -X POST https://cyf-slack-relay-k46a4x6blq-ew.a.run.app/ -H 'Content-Type: application/json' -d '{"text":"here goes the text"}'
