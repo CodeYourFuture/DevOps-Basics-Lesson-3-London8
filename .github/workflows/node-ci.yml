@@ -25,4 +25,4 @@ jobs:
       #   run: npm ci
       # - run: npm test
       - run: > 
-          curl -X POST https://cyf-slack-relay-k46a4x6blq-ew.a.run.app/ -H 'Content-Type: application/json' -d '{"text":"here goes the text"}'
+          curl -X POST https://cyf-slack-relay-k46a4x6blq-ew.a.run.app/ -H 'Content-Type: application/json' -d '{"text":"hello from Github Actions - using Node: ${{ matrix.node-version }}"}'
