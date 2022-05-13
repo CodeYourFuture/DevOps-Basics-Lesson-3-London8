@@ -16,11 +16,11 @@ const logger = pino({
 });
 
 app.get("/", (req, res) => {
-  logger.info("info: the index page has been visited");
-  logger.error();
-  ("error: the error message");
-  logger.warn("warn: the warn message");
-  logger.fatal("fatal: the fatal message");
+  logger.info("the index page has been visited");
+  // logger.error();
+  // ("error: the error message");
+  // logger.warn("warn: the warn message");
+  // logger.fatal("fatal: the fatal message");
   // const currentTime = new Date();
   // console.log("the index page has been visited");
   res.send(
@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
 app.get("/hello/:name", sayHelloHandler);
 
 app.listen(port, () => {
-  console.log(
+  logger.info(
     `Hello world Application started and listening on http://localhost:${port}`
   );
 });
