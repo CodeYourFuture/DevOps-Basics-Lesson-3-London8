@@ -12,7 +12,7 @@ const indexHandler = (req, res) => {
 };
 
 const sayHelloHandler = (req, res) => {
-  //  console.log("Hello!!!");
+  //  console.log("Hellooo!");
   const name = req.params.name || "person";
 
   res.send(`Hello ${name}!`);
