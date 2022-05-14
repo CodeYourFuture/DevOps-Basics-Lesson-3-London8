@@ -7,19 +7,18 @@ on:
     branches: [master]
 
 jobs:
-  run-tests-for-nodejs:
+  build-and-push-docker:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
       - name: Build Docker Image # Note how I don't have to set up node in my env!
         run: docker build -t "lorenzo-devops-basics-repo" .
-      - name: Log into Dockerhub
+      - name: Log and push to Dockerhub
         env:
           DOCKER_LOGIN: ${{ secrets.DOCKER_LOGIN }}
           DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
-        run: echo ${DOCKER_TOKEN} | docker login -u ${DOCKER_LOGIN} --password-stdin
-      - name: Push Image to Dockerhub
-        run: docker push lorenzo-devops-basics-repo
+        run: |
+          echo ${DOCKER_TOKEN} | docker login -u ${DOCKER_LOGIN} --password-stdin
+          docker push lorenzo-devops-basics-repo
       # - run: >
       #     curl -X POST https://cyf-slack-relay-k46a4x6blq-ew.a.run.app/ -H 'Content-Type: application/json' -d '{"text":"hello from Github Actions - using Node: ${{ matrix.node-version }}"}'
