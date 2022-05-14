@@ -2,29 +2,24 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   run-tests-for-nodejs:
-
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x]
 
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: build docker
-        run: docker build -t "sample" .
-      # - name: Install dependencies
-      #   run: npm ci
-      # - run: npm test
-      # - run: > 
+      - name: Build Docker Image # Note how I don't have to set up node in my env!
+        run: docker build -t "lorenzo-devops-basics-repo" .
+      - name: Log into Dockerhub
+        env:
+          DOCKER_LOGIN: ${{ secrets.DOCKER_LOGIN }}
+          DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+        run: echo ${DOCKER_TOKEN} | docker login -u ${DOCKER_LOGIN} --password-stdin
+      - name: Push Image to Dockerhub
+        run: docker push lorenzo-devops-basics-repo
+      # - run: >
       #     curl -X POST https://cyf-slack-relay-k46a4x6blq-ew.a.run.app/ -H 'Content-Type: application/json' -d '{"text":"hello from Github Actions - using Node: ${{ matrix.node-version }}"}'
