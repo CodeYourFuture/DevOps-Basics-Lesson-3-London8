@@ -1,0 +1,24 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build-and-push-docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build Docker Image # Note how I don't have to set up node in my env!
+        run: docker build -t "robota/lorenzo-devops-basics-repo" .
+      - name: Log and push to Dockerhub
+        env:
+          DOCKER_LOGIN: ${{ secrets.DOCKER_LOGIN }}
+          DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+        run: |
+          echo ${DOCKER_TOKEN} | docker login -u ${DOCKER_LOGIN} --password-stdin
+          docker push robota/lorenzo-devops-basics-repo
+      # - run: >
+      #     curl -X POST https://cyf-slack-relay-k46a4x6blq-ew.a.run.app/ -H 'Content-Type: application/json' -d '{"text":"hello from Github Actions - using Node: ${{ matrix.node-version }}"}'
