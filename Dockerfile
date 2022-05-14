@@ -1,21 +1,17 @@
-# Start from the Official Image with Node 14 on Alpine Linux 3.14. 
-FROM node:14-alpine3.14
+FROM node:14-alpine
 
-# Copy the package.json file to the container image
-COPY package.json package-lock.json ./
 
-# Install the dependencies
-RUN npm ci
+# COPY . .      >>> get everything in this file and copy it (this is a comment)
 
-# Copy the components of my program to the container image
+# Copy all the files we need to install dependencies and run our app.
+COPY package.json .
+COPY package-lock.json .
 COPY server.js .
 COPY routes routes
 
-# Tell Docker that on startup, the container should run the "npm start" command, which will start the server.
-CMD [ "npm", "start" ]
+# Install the dependencies
+RUN npm install
 
+# Tell Docker the command to run when the container is started
+CMD ["npm", "start"]
 
-## This Dockerfile contains the instruction for Docker to build an Image. To actually build you can run the command:
-## docker build -t "my-first-node-server" .
-## Where `docker build` is the command to build an image, and `my-first-node-server` is the name of the image, also known as the tag.
-## the `.` is the current directory - this tell Docker to look for the Dockerfile in the current directory.
