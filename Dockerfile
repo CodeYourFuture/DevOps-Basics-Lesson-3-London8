@@ -11,5 +11,6 @@ FROM node:14-alpine
 # Install the dependencies
 RUN npm ci
 
+
 # Tell Docker the command to run when the container is Started
  CMD ["npm", "start"]
