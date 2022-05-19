@@ -8,7 +8,7 @@ const indexHandler = (req, res) => {
 }
 
 const sayHelloHandler = (req, res) => {
-  const name = req.params.name || "person";
+  const name = req.params.name || "Friend";
 
   res.send(`Hello ${name}!`);
 }
