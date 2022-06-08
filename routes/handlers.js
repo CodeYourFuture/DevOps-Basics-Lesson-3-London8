@@ -21,7 +21,7 @@ const indexHandler = (req, res) => {
 
 const sayHelloHandler = (req, res) => {
   //let current_time = new Date();
-  const name = req.params.name || "person";
+  const name = req.params.name || "Friend";
 
   res.send(`Hello ${name}!`);
   logger.info(`The name of the greeted person is ${name}`);
