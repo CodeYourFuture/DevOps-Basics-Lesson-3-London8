@@ -10,11 +10,11 @@ const logger = pino({
 let request_number = 0;
 
 const indexHandler = (req, res) => {
-  //var current_time = new Date();
+  var current_time = new Date();
   request_number += 1;
 
   res.send(
-    `Hello! The server has responded to ${request_number} requests since it started.`
+    `Hello! The current server time in is ${current_time}. The server has responded to ${request_number} requests since it started.`
   );
   logger.info(`The server has responded to ${request_number}`);
 };
