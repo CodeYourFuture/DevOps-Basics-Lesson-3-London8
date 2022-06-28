@@ -1,0 +1,25 @@
+{
+  "channel": "C02PKEK22PK",
+  "blocks": [
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "text from git hub acttion:"
+      }
+    },
+    
+  ],
+  "attachments": [
+    {
+      "blocks": [
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*github action*"
+          }
+        }]
+    }
+  ]
+}
