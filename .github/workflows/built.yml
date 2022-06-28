@@ -3,10 +3,10 @@ on:
   push:
     branches:
       - '**'
-      - '!review'
+      - '!master'
 on:
   pull_request:
-    branches: [review]
+    branches: [master]
 
 jobs:
   build:
